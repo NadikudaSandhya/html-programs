@@ -1,0 +1,21 @@
+<div class="profile-list">
+    <div *ngFor="let profile of profiles">
+      <div class="profile-card">
+        <div>Name: {{ profile.name }}</div>
+        <div>Description: {{ profile.description }}</div>
+        <div>Address: {{ profile.address }}</div>
+        <button (click)="selectProfile(profile)">Summary</button>
+      </div>
+    </div>
+  </div>
+  <div class="profile-details" *ngIf="selectedProfile">
+    <!-- Include the Map component here -->
+    <app-map [address]="selectedProfile.address"></app-map>
+    <div>
+      <h2>{{ selectedProfile.name }}</h2>
+      <div>Description: {{ selectedProfile.description }}</div>
+      <div>Address: {{ selectedProfile.address }}</div>
+    </div>
+    <button (click)="clearSelection()">Back to List</button>
+  </div>
+  

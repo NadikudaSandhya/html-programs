@@ -1,0 +1,25 @@
+<div class="admin-panel">
+    <h2>Admin Panel</h2>
+    <div>
+      <h3>Add New Profile</h3>
+      <div>
+        <input [(ngModel)]="newProfile.name" placeholder="Name">
+        <input [(ngModel)]="newProfile.description" placeholder="Description">
+        <input [(ngModel)]="newProfile.address" placeholder="Address">
+        <button (click)="addProfile()">Add</button>
+      </div>
+    </div>
+    <div>
+      <h3>Profiles</h3>
+      <div *ngFor="let profile of profiles">
+        <div>
+          <input [(ngModel)]="profile.name">
+          <input [(ngModel)]="profile.description">
+          <input [(ngModel)]="profile.address">
+          <button (click)="editProfile(profile)">Save</button>
+          <button (click)="deleteProfile(profile.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
